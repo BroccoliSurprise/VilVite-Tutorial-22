@@ -4,6 +4,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 let egg: Sprite = null
 let eggTegning: Image = null
 let helten: Sprite = null
+tiles.setCurrentTilemap(tilemap`level3`)
 scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
@@ -144,14 +145,15 @@ helten = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(helten, 100, 0)
-helten.ay = 100
+let tyngdekraft = 9.81
 helten.setStayInScreen(true)
-game.onUpdateInterval(1000, function () {
+controller.moveSprite(helten, 100, 0)
+helten.ay = tyngdekraft * 10
+game.onUpdateInterval(randint(2000, 4000), function () {
     eggTegning = assets.image`egg1`
     eggTegning.replace(5, randint(1, 14))
     eggTegning.replace(3, randint(1, 14))
     egg = sprites.create(eggTegning, SpriteKind.Food)
-    egg.setPosition(160, randint(0, 120))
-    egg.setVelocity(randint(-50, -30), 0)
+    egg.setPosition(randint(0, 160), 0)
+    egg.setVelocity(0, tyngdekraft * randint(2, 5))
 })
