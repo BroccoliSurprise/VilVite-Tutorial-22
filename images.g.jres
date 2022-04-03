@@ -1,0 +1,12 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDNVMwAAAFAzMzUzAwAAUzNTMzMzADA1M1UzM1MAUzUzNTMzNQBVM1M1M1M1ADMzVTMzVTMAMFM1M1M1MwAAVTMzVTMzAAAwM1M1MwMAAAAwUzMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "egg1"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
