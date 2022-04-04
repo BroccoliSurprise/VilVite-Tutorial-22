@@ -13,6 +13,7 @@
         "tilemap.g.ts",
         "images.g.jres",
         "images.g.ts",
+        "veiviser.md",
         "guide.md"
     ],
     "testFiles": [
@@ -26,5 +27,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }

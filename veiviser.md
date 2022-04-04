@@ -1,5 +1,21 @@
+# WOW
+
+## Introduction @unplugged
+
+WOW
+
+## Step 1
+
+YAY
+
+## Step 2
+
+WOO
+
+```template
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, otherSprite) {
     otherSprite.setVelocity(0, -100)
+    music.knock.play()
     info.changeScoreBy(1)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -165,10 +181,29 @@ helten.ay = 100
 helten.setStayInScreen(true)
 controller.moveSprite(helten, 100, 0)
 game.onUpdateInterval(randint(2000, 4000), function () {
-    eggTegning = assets.image`egg1`
+    eggTegning = img`
+        . . . . . . . 3 3 . . . . . . . 
+        . . . . . . 3 3 3 3 . . . . . . 
+        . . . . 3 3 3 3 3 5 5 3 . . . . 
+        . . . . 3 3 3 5 5 5 3 3 . . . . 
+        . . . 3 3 5 5 5 3 3 3 3 3 . . . 
+        . . . 5 5 3 3 3 3 3 3 3 3 . . . 
+        . . . 3 3 3 3 3 3 3 3 3 5 . . . 
+        . . . 3 3 3 3 3 3 3 5 5 5 . . . 
+        . . 3 3 3 3 3 3 5 5 5 3 3 3 . . 
+        . . 3 3 3 3 5 5 5 3 3 3 3 3 . . 
+        . . 3 3 5 5 5 3 3 3 3 3 3 3 . . 
+        . . 3 5 5 3 3 3 3 3 3 3 3 3 . . 
+        . . 5 3 3 3 3 3 3 3 3 3 5 5 . . 
+        . . . 3 3 3 3 3 3 3 3 5 5 3 . . 
+        . . . 3 3 3 3 3 5 5 5 3 3 . . . 
+        . . . . 3 3 3 5 5 3 3 3 . . . . 
+        `
     eggTegning.replace(5, randint(1, 14))
     eggTegning.replace(3, randint(1, 14))
     egg = sprites.create(eggTegning, SpriteKind.Food)
     egg.setPosition(randint(0, 160), 0)
     egg.ay = 30
 })
+
+```
