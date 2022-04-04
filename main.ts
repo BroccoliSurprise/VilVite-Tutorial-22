@@ -1,10 +1,26 @@
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Food, function (sprite, otherSprite) {
+    otherSprite.setVelocity(0, -100)
+    info.changeScoreBy(1)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    helten.setVelocity(0, -100)
+    sverd = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 . . . . . . . . 
+        . . . . . . 9 9 1 1 1 1 1 1 1 1 1 1 1 1 1 1 9 9 . . . . . . 
+        . . . . . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . . . . . 
+        . . . . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 . . . . 
+        . . 1 1 1 1 1 1 . . . . . . . . . . . . . 1 1 1 1 1 1 . . . 
+        . . 1 1 1 1 1 . . . . . . . . . . . . . . . . . . 1 1 1 . . 
+        . 1 1 . . . . . . . . . . . . . . . . . . . . . . . 1 1 1 . 
+        . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 
+        . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 
+        `, helten, 0, -50)
+    sverd.lifespan = 200
 })
 let egg: Sprite = null
 let eggTegning: Image = null
+let sverd: Sprite = null
 let helten: Sprite = null
-tiles.setCurrentTilemap(tilemap`level3`)
 scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
@@ -145,15 +161,15 @@ helten = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-let tyngdekraft = 9.81
+helten.ay = 100
 helten.setStayInScreen(true)
 controller.moveSprite(helten, 100, 0)
-helten.ay = tyngdekraft * 10
+info.startCountdown(30)
 game.onUpdateInterval(randint(2000, 4000), function () {
     eggTegning = assets.image`egg1`
     eggTegning.replace(5, randint(1, 14))
     eggTegning.replace(3, randint(1, 14))
     egg = sprites.create(eggTegning, SpriteKind.Food)
     egg.setPosition(randint(0, 160), 0)
-    egg.setVelocity(0, tyngdekraft * randint(2, 5))
+    egg.ay = 30
 })
